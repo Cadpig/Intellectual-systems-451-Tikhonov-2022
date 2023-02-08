@@ -20,7 +20,7 @@ def ctas(df):
 
 @task
 def copy_to_file(df):
-    df.to_csv('norm.csv.gz')
+    df.to_csv('pipelines/norm.csv.gz')
     return 'norm.csv.gz'
 
 
@@ -29,4 +29,3 @@ def copy_to_file(df):
 @flow
 def api_flow(file_name):
     return copy_to_file(ctas(load_file_to_db(file_name)))
-

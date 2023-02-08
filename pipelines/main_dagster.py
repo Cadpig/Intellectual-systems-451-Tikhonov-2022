@@ -1,9 +1,10 @@
 from dagster import job, op
 import pandas as pd
 
+
 @op
 def load_file_to_db():
-    df = pd.read_csv("/Users/vladislavtihonov/Documents/University/Pipelines/original.csv")
+    df = pd.read_csv("pipelines/original.csv")
     return df
 
 @op
@@ -16,8 +17,9 @@ def ctas(df):
 
 @op
 def copy_to_file(df):
-    df.to_csv('norm.csv.gz')
+    df.to_csv('pipelines/norm.csv.gz')
     return 'norm.csv.gz'
+
 
 @job
 def serial():

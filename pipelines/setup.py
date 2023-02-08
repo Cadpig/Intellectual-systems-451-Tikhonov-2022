@@ -9,7 +9,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'pipelines = main_prefect:api_flow',
+            'pipelines_prefect = main_prefect:api_flow',
         ],
     },
 )
